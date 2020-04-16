@@ -1,0 +1,319 @@
+html {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+body {
+  background-color: white;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  font-family: Impact, Charcoal, sans-serif;
+}
+
+/* NAV BAR */
+.loginnav {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  height: 9vh;
+}
+
+nav ul {
+  position: relative;
+  margin: auto;
+  padding: 0;
+  display: block;
+  height: 100%;
+  width: 50%;
+  text-align: center;
+  height: 9vh;
+}
+
+nav a {
+  color: #ffff;
+  text-shadow: 1px 1px 3px black;
+  font-size: 20px;
+  position: relative;
+}
+
+nav ul li {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  text-transform: uppercase;
+  position: relative;
+  list-style-type: none;
+  display: inline-block;
+  text-align: center;
+  margin: auto 0;
+  color: #ffff;
+  width: 20%;
+  transform: translateY(90%);
+}
+
+.flash {
+  width: 50%;
+  height: 30px;
+  margin: auto;
+  text-align: center;
+}
+
+.user {
+  text-align: center;
+  height: 50px;
+  font-size: 40px;
+}
+
+/* INDEX.HTML */
+.table {
+  width: 70%;
+  height: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.table h1 {
+  display: none;
+}
+.tableadmin {
+  width: 70%;
+  height: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.table input[type="button"] {
+  display: none;
+  margin: auto;
+}
+
+.tableadmin input[type="button"] {
+  display: none;
+  margin: auto;
+}
+
+.yes {
+  display: block;
+  margin: 0 100px;
+
+  height: 50%;
+  width: 29%;
+  float: left;
+}
+
+.yesadmin {
+  display: block;
+  margin: 0 100px;
+
+  height: 50%;
+  width: 30%;
+  float: left;
+}
+
+.no {
+  display: block;
+  margin: 0 100px;
+
+  width: 25%;
+  float: right;
+}
+
+.noadmin {
+  display: block;
+  margin: 0 100px;
+
+  width: 30%;
+  float: right;
+}
+
+.yeslist {
+  text-align: center;
+  display: none;
+}
+.yeslistadmin {
+  text-align: center;
+}
+
+.nolist {
+  text-align: center;
+  display: none;
+}
+.nolistadmin {
+  text-align: center;
+}
+
+.modal {
+  border: 1px solid black;
+  background-color: white;
+  height: 400px;
+  width: 500px;
+  margin: auto;
+  text-align: center;
+  display: none;
+  opacity: 0;
+  border-radius: 5px;
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+.modalHeader {
+  height: 25%;
+  border: 1px solid black;
+  border-left: 0;
+  border-right: 0;
+  background-color: green;
+}
+.modalHeader h1 {
+  transform: translateY(50%);
+}
+
+.modal form {
+  height: 60%;
+  padding-top: 50px;
+}
+
+.modal form label {
+  display: block;
+  margin: 5px auto;
+  text-align: justify;
+  width: 50%;
+}
+
+.modal form input[type="reset"] {
+  margin-top: 35px;
+}
+.modal form input[type="radio"] {
+  margin-top: 10px;
+}
+
+.close {
+  border-radius: 90%;
+  position: absolute;
+  top: 1%;
+  right: 1%;
+  border: 1px solid black;
+}
+
+/* LOGIN.HTML */
+
+.logincontainer {
+  width: 400px;
+  margin: 8% auto;
+  height: 561px;
+  background: rgba(0, 0, 0, 0.6);
+  align-content: center;
+}
+
+.logincontainer button {
+  width: 70%;
+  padding: 0;
+  margin: 5% auto;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  background-color: #ff7f50;
+}
+
+.logincontainer input {
+  width: 70%;
+  margin: 5% auto;
+  height: 30px;
+  border: none;
+  border-bottom: 1px solid white;
+  background: transparent;
+  outline: none;
+  font-size: 15px;
+  color: white;
+}
+
+.logincontainer label {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+.logincontainer p {
+  margin: auto;
+  position: relative;
+  font-size: 15px;
+  margin-left: 15px;
+}
+
+.logincontainer p a {
+  text-decoration: underline;
+}
+
+.formsbox {
+  transform: translate(15%, 50%);
+  color: white;
+}
+
+/* REGISTER.HTML */
+
+#registrationbox {
+  min-width: 20%;
+  width: 100%;
+  display: flex;
+  margin: auto;
+  padding: 0;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#registercontainer {
+  width: 500px;
+  margin: 8% auto;
+  height: 600px;
+  background: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  padding: 0;
+}
+
+#registercontainer h3 {
+  margin: 0;
+}
+
+#registercontainer input {
+  width: 70%;
+  margin: 5% auto;
+  height: 30px;
+  border: none;
+  border-bottom: 1px solid white;
+  background: transparent;
+  outline: none;
+  font-size: 15px;
+  color: white;
+}
+
+#registercontainer button {
+  width: 70%;
+  padding: 0;
+  margin: 5% auto;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  background-color: #ff7f50;
+}
+
+.registerform {
+  height: 100%;
+  padding-top: 50px;
+  color: white;
+}
+
+.registerform input::placeholder {
+  color: white;
+  opacity: 0.4;
+}

@@ -1,0 +1,116 @@
+{% extends "layout.html" %} {% block content %}
+
+<div class="flash">
+  {% with messages = get_flashed_messages() %} {% if messages %} {% for message
+  in messages%} {{message}} {% endfor %} {% endif %} {% endwith %}
+</div>
+
+<div class="table">
+  <h1>People who voted: <span class="totalnumber">0</span></h1>
+  <input type="button" value="Open Survey" class="openModal" />
+  <br />
+  <br />
+
+  <div class="yes">
+    <h2>People who voted YES(percentage): <span class="yespercent">0</span></h2>
+    <div class="yeslist">
+      {% for n in yes %}
+      <p class="el">{{n[1]}}</p>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="no">
+    <h2>People who voted NO(percentage): <span class="nopercent">0</span></h2>
+    <div class="nolist">
+      {% for n in no %}
+      <p class="el">{{n[1]}}</p>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% if session['username'] %}
+<div class="modal">
+  <div class="modalHeader"><h1>Quick Survey:</h1></div>
+  <button class="close" type="button">X</button>
+  <form action="/" method="POST">
+    <label for="survey">Do you like the website?</label>
+    <label class="radioButtons">
+      <input type="radio" value="yes" name="radiobutton" /> Yes
+      <span class="checkmark"></span>
+    </label>
+    <label class="radioButtons">
+      <input type="radio" value="no" name="radiobutton" />No
+      <span class="checkmark"></span>
+    </label>
+    <input type="submit" value="Submit" class="submit" />
+  </form>
+</div>
+
+<!-- INLINE JAVASCRIPT -->
+
+<script>
+  //FUNCTIONS
+  function closeModal() {
+    document.querySelector(".modal").style.display = "none";
+    document.querySelector("body").style.backgroundColor = "rgba(0,0,0,0)";
+  }
+
+  function openModal() {
+    document.querySelector(".modal").style.opacity = "1";
+    document.querySelector(".modal").style.display = "block";
+    document.querySelector("body").style.backgroundColor = "rgba(0,0,0,0.7)";
+    document.querySelector(".table input[type ='button']").style.display =
+      "none";
+  }
+
+  // USERS PAGE
+  function user() {
+    let yes = document.querySelector(".yeslist").childElementCount;
+    let no = document.querySelector(".nolist").childElementCount;
+    let total = yes + no;
+    let yespercent = (yes / total) * 100;
+    let nopercent = (no / total) * 100;
+
+    document.querySelector(".totalnumber").innerHTML = total;
+    document.querySelector(".yespercent").innerHTML =
+      yespercent.toFixed(2) + "%";
+    document.querySelector(".nopercent").innerHTML = nopercent.toFixed(2) + "%";
+  }
+
+  //OPENING THE POP UP MODAL AT PAGE LOAD (make the modal pop up only once if a user already voted)
+
+  window.addEventListener("load", function () {
+    let list = [];
+    let x = document.querySelectorAll("p");
+
+    for (var i = 0; i < x.length; i++) {
+      list.push(x[i].textContent);
+    }
+    let y = "{{username}}";
+
+    if (!list.includes(y)) {
+      setTimeout(function () {
+        openModal();
+      }, 2000);
+    }
+    document.querySelector(".table input[type ='button']").style.display =
+      "block";
+
+    user();
+  });
+
+  //CLOSING THE POP UP MODAL WITH THE CLOSE BUTTON
+  document.querySelector(".close").addEventListener("click", function () {
+    closeModal();
+  });
+  //OPENING MODAL USING THE OPEN SURVEY BUTTON
+  document.querySelector(".openModal").addEventListener("click", function () {
+    openModal();
+  });
+
+  document.querySelector(".submit").addEventListener("click", function () {
+    closeModal();
+  });
+</script>
+{%endif%}{%endblock%}

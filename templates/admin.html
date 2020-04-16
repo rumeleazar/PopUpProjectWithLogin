@@ -1,0 +1,33 @@
+{% extends "layout.html" %} {% block content %}
+
+<div class="flash">
+  {% with messages = get_flashed_messages() %} {% if messages %} {% for message
+  in messages%} {{message}} {% endfor %} {% endif %} {% endwith %}
+</div>
+<div class="tableadmin">
+  <h1>People who voted: <span class="totaladmin">0</span></h1>
+
+  <br />
+  <br />
+
+  <div class="yesadmin">
+    <h2>People who voted for Yes: <span class="yesnumber">0</span></h2>
+    <div class="yeslistadmin">
+      {% for n in yes %}
+      <p>{{n[1]}}</p>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="noadmin">
+    <h2>People who voted for No: <span class="nonumber">0</span></h2>
+    <div class="nolistadmin">
+      {% for n in no %}
+      <p>{{n[1]}}</p>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<script src="{{url_for('static', filename = 'admin.js')}}"></script>
+
+{% endblock %}
