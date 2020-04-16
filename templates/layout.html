@@ -17,11 +17,10 @@
         <nav>	
             <ul>
                 {% if not session['username'] %}
-                    
+                        <li><a href = {{ url_for("index")}}>Home</a></li>
                         <li><a href = {{ url_for("login") }}>Sign in</a></li>
                         <li><a  href = {{ url_for("register") }}>Register</a></li>
                 {% else %}
-                        <li><a href = {{ url_for("index")}}>Home</a></li>
                         <li><a href = {{ url_for("logout") }}>Logout</a></li>
                 {% endif %}		
             </ul>
